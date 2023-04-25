@@ -27,6 +27,13 @@
             <version>1.19.0</version>
         </dependency>
         <dependency>
+            <groupId>com.microsoft.z3</groupId>
+            <artifactId>z3</artifactId>
+            <version>4.8.17</version>
+            <scope>system</scope>
+            <systemPath>${env.LD_LIBRARY_PATH}/com.microsoft.z3.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>2.1</version>
