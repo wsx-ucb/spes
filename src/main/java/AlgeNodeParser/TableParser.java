@@ -4,11 +4,11 @@ import AlgeNode.AlgeNode;
 import AlgeNode.TableNode;
 import AlgeNode.SPJNode;
 import com.microsoft.z3.Context;
-import org.apache.calcite.adapter.enumerable.EnumerableTableScan;
 import org.apache.calcite.plan.RelOptTable;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.type.RelDataType;
 import org.apache.calcite.rel.type.RelDataTypeField;
+import org.apache.calcite.rel.logical.LogicalTableScan;
 import org.apache.calcite.rex.RexInputRef;
 import org.apache.calcite.rex.RexNode;
 
@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class TableParser extends AlgeNodeParser{
     public AlgeNode constructRelNode(RelNode input, Context z3Context){
-        EnumerableTableScan tableScan = (EnumerableTableScan) input;
+        LogicalTableScan tableScan = (LogicalTableScan) input;
         RelOptTable table = tableScan.getTable();
         String tableName = table.getQualifiedName().get(0);
         List<RelDataTypeField> columns = tableScan.getRowType().getFieldList();

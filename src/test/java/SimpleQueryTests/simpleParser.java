@@ -31,7 +31,6 @@ public class simpleParser {
         }
 
         public void addTableSchema(){
-            SqlToRelConverter.configBuilder().build();
             defaultSchema.add("EMP", new EMP());
             defaultSchema.add("DEPT",new DEPT());
             defaultSchema.add("BONUS",new BONUS());
@@ -41,7 +40,6 @@ public class simpleParser {
         public RelNode getRelNode(String sql) throws SqlParseException, ValidationException, RelConversionException{
             SqlNode parse = planner.parse(sql);
             //System.out.println(parse.toString());
-            SqlToRelConverter.configBuilder().build();
             SqlNode validate = planner.validate(parse);
             RelNode tree = planner.rel(validate).rel;
             //String plan = RelOptUtil.toString(tree,SqlExplainLevel.EXPPLAN_ATTRIBUTES); //explain(tree, SqlExplainLevel.ALL_ATTRIBUTES);
